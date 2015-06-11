@@ -30,7 +30,7 @@ namespace char__
         string Caesar(string word, int key) //алгоритм
         {
           
-            StringBuilder sb = new StringBuilder(); 
+            StringBuilder sb = var StringBuilder(); 
             foreach (var character in word)        
             {
                 var ch = character;                 
@@ -45,7 +45,7 @@ namespace char__
         string Decode(string word, int key)
         {
        
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = var StringBuilder();
             foreach (char character in word)
             {
                 var ch = character;
