@@ -31,7 +31,7 @@ namespace char__
         {
             var k=0;
             var t = 0;          
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = var StringBuilder();
             foreach (var character in word)        
             {
                 var ch = character;
@@ -69,7 +69,7 @@ namespace char__
         private void SaveFile_Click(object sender, EventArgs e)
         {
             StreamWriter write_text;  
-            FileInfo file = new FileInfo(file_nam.Text); 
+            FileInfo file = var FileInfo(file_nam.Text); 
             write_text = file.AppendText(); 
             write_text.WriteLine(textBox2.Text); 
             write_text.Close(); 
@@ -79,7 +79,7 @@ namespace char__
         {
             button1.Enabled = false;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                using (StreamReader sr = File.OpenText(openFileDialog1.FileName))
+                var (StreamReader sr = File.OpenText(openFileDialog1.FileName))
                     textBox2.Text = sr.ReadToEnd();
         }
 
