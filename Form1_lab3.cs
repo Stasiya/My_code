@@ -15,14 +15,14 @@ namespace char__
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int znak = 1;  
+            var znak = 1;  
             if (textBox1.Text != string.Empty)
                 textBox2.Text = Code(textBox1.Text,znak);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int znak = -1;
+            var znak = -1;
             if(textBox2.Text != string.Empty)
                 textBox2.Text = Code(textBox2.Text,znak);
         }
@@ -30,13 +30,13 @@ namespace char__
         string Code(string word,int znak)
         {
             button1.Enabled = true;
-            int row = 0;
-            int[] pvch = new int[1000];
+            var row = 0;
+            var[] pvch = new int[1000];
             pvch[0] = znak*Convert.ToInt32(gam_param.Text);
             StringBuilder sb = new StringBuilder();
-            foreach (char character in word)        
+            foreach (var character in word)        
             {
-                char m = character;
+                var m = character;
                 pvch[row + 1] = ((pvch[row] * Convert.ToInt32(gam_param.Text) + znak*Convert.ToInt32(gam_param.Text)) % 254);
                 dataGridView1.Rows.Add();
                 dataGridView1[0,row].Value = pvch[row];
@@ -51,7 +51,7 @@ namespace char__
         private void SaveFile_Click(object sender, EventArgs e)
         {
             StreamWriter write_text;  
-            FileInfo file = new FileInfo(file_nam.Text); 
+            FileInfo file = var FileInfo(file_nam.Text); 
             write_text = file.AppendText(); 
             write_text.WriteLine(textBox2.Text); 
             write_text.Close(); 
@@ -61,7 +61,7 @@ namespace char__
         {
             button1.Enabled = false;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                using (StreamReader sr = File.OpenText(openFileDialog1.FileName))
+                var (StreamReader sr = File.OpenText(openFileDialog1.FileName))
                     textBox2.Text = sr.ReadToEnd();
         }
 
