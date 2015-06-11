@@ -15,14 +15,14 @@ namespace char__
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int keyform = Convert.ToInt32(textBox3.Text);   
+            var keyform = Convert.ToInt32(textBox3.Text);   
             if (textBox1.Text != string.Empty) //условия поля шага
                 textBox1.Text = Caesar(textBox1.Text, keyform); //шифрование
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int keyform = Convert.ToInt32(textBox3.Text);   
+            var keyform = Convert.ToInt32(textBox3.Text);   
             if(textBox1.Text != string.Empty)
                 textBox2.Text = Decode(textBox1.Text, keyform); //дешифровка
         }
@@ -31,9 +31,9 @@ namespace char__
         {
           
             StringBuilder sb = new StringBuilder(); 
-            foreach (char character in word)        
+            foreach (var character in word)        
             {
-                char ch = character;                 
+                var ch = character;                 
                 ch = (char)(ch + key);              
                 if (ch >= 'я')                     
                     ch = (char)(ch - 32);          
@@ -48,7 +48,7 @@ namespace char__
             StringBuilder sb = new StringBuilder();
             foreach (char character in word)
             {
-                char ch = character;
+                var ch = character;
                 ch = (char) ((int) ch - key); 
                 if (ch >= 'я')
                     ch = (char)(ch + 32); 
