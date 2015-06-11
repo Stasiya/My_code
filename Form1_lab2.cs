@@ -15,26 +15,26 @@ namespace char__
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int znak = 1;  
+            var znak = 1;  
             if (textBox1.Text != string.Empty)
                 textBox2.Text = Code(textBox1.Text,Gaslo.Text,znak);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int znak = -1;
+            var znak = -1;
             if(textBox1.Text != string.Empty)
                 textBox2.Text = Code(textBox2.Text,Gaslo.Text,znak);
         }
 
         string Code(string word,string gsl,int znak)
         {
-            int k=0;
-            int t = 0;          
+            var k=0;
+            var t = 0;          
             StringBuilder sb = new StringBuilder();
-            foreach (char character in word)        
+            foreach (var character in word)        
             {
-                char ch = character;
+                var ch = character;
                 t++;
 
                 if (Check_Liniyne.Checked)
@@ -49,9 +49,9 @@ namespace char__
                     else
                         if (Check_Gaslo.Checked)
                         {
-                            foreach (char character1 in gsl)
+                            foreach (var character1 in gsl)
                             {
-                                char ch1 = character1;
+                                var ch1 = character1;
                                 k = ch1;     
                             } 
                         }
