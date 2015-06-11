@@ -20,14 +20,14 @@ namespace char__
                 
             if (textBox1.Text != string.Empty)
             {
-                DESCryptoServiceProvider crypt = new DESCryptoServiceProvider();
+                DESCryptoServiceProvider crypt = var DESCryptoServiceProvider();
                 crypt.Key = UnicodeEncoding.UTF8.GetBytes(key.Text);
                 crypt.IV = UnicodeEncoding.UTF8.GetBytes(vector.Text);
-                using (FileStream fs = new FileStream(@"C:\Users\Anastasia\Desktop\КПИ\Тарнавский\Laba5\char++\bin\Debug\" + file_nam.Text, FileMode.OpenOrCreate, FileAccess.Write))
+                var (FileStream fs = new FileStream(@"C:\Users\Anastasia\Desktop\КПИ\Тарнавский\Laba5\char++\bin\Debug\" + file_nam.Text, FileMode.OpenOrCreate, FileAccess.Write))
                 {
-                    using (CryptoStream cs = new CryptoStream(fs, crypt.CreateEncryptor(), CryptoStreamMode.Write))
+                    var (CryptoStream cs = new CryptoStream(fs, crypt.CreateEncryptor(), CryptoStreamMode.Write))
                     {
-                        byte[] data = UnicodeEncoding.UTF8.GetBytes(textBox1.Text);
+                        var data = UnicodeEncoding.UTF8.GetBytes(textBox1.Text);
                         cs.Write(data, 0, data.Length);
                     }
                 }
@@ -44,12 +44,12 @@ namespace char__
             DESCryptoServiceProvider decrypt = new DESCryptoServiceProvider();
             decrypt.Key = UnicodeEncoding.UTF8.GetBytes(key.Text);
             decrypt.IV = UnicodeEncoding.UTF8.GetBytes(vector.Text);
-            using (FileStream fs = new FileStream(@filename_open.Text, FileMode.Open, FileAccess.Read))
+            var (FileStream fs = new FileStream(@filename_open.Text, FileMode.Open, FileAccess.Read))
             {
                 CryptoStream cs = new CryptoStream(fs, decrypt.CreateDecryptor(), CryptoStreamMode.Read);
-                using (StreamReader read = new StreamReader(cs))
+                var (StreamReader read = new StreamReader(cs))
                 {
-                    string data = read.ReadToEnd();
+                    var data = read.ReadToEnd();
                     textBox1.Text = data;
                 }
             }              
