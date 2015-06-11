@@ -31,7 +31,7 @@ namespace char__
         {
             button1.Enabled = true;
             var row = 0;
-            var[] pvch = new int[1000];
+            var pvch = new int[1000];
             pvch[0] = znak*Convert.ToInt32(gam_param.Text);
             StringBuilder sb = new StringBuilder();
             foreach (var character in word)        
