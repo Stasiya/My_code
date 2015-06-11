@@ -32,16 +32,16 @@ namespace char__
             this.textBox4.Clear();
             this.dataGridView1.Rows.Clear();
             Key_Table(key);
-            foreach (char character in word)        
+            foreach (var character in word)        
             {
                 
-                char m = character;
-                int column = 1;
-                int row = 0;
-                int skip = 0;
-                foreach (char character1 in key)
+                var m = character;
+                var column = 1;
+                var row = 0;
+                var skip = 0;
+                foreach (var character1 in key)
                 {
-                    char k = character1;
+                    var k = character1;
                     if (k != 13)
                     {
                         column++;
@@ -73,18 +73,17 @@ namespace char__
 
         string Decrypt(string shifrograma, string key)
         {
-            6
             this.textBox5.Clear();
             this.dataGridView1.Rows.Clear();
             Key_Table(key);
-            string[] param = textBox2.Text.Split( new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries );
-            int[] mas = new int[ param.Length ];
+            var param = textBox2.Text.Split( new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries );
+            var mas = new int[ param.Length ];
             for ( int i = 0; i < param.Length; i++ )
                 mas[ i ] = int.Parse( param[ i ] );
 
-            int column = 1;
-            int row = 0;
-            int j = 0;
+            var column = 1;
+            var row = 0;
+            var j = 0;
             while(j<mas.Length)
               {
                  column = mas[j] / 100;
@@ -93,7 +92,7 @@ namespace char__
                  dataGridView1[column - 9, row - 10].Style.BackColor = System.Drawing.Color.Purple;
                  j ++;
               }        
-            for (int num_riad = 0; num_riad < 100; num_riad++)
+            for (var num_riad = 0; num_riad < 100; num_riad++)
               dataGridView1[0, num_riad].Value = (10 + num_riad);
 
         return shifrograma;
@@ -101,13 +100,13 @@ namespace char__
 
         private void Key_Table(string key)
         {
-               int column = 1;
-               int row = 0;
+               var column = 1;
+               var row = 0;
 
-               foreach (char character1 in key)
+               foreach (var character1 in key)
                {
 
-                   char k = character1;
+                   var k = character1;
                    if (column == 91)
                    {
                        row++;
@@ -131,7 +130,7 @@ namespace char__
         private void SaveFile_Click(object sender, EventArgs e)
         {
             StreamWriter write_text;  
-            FileInfo file = new FileInfo(file_nam.Text); 
+            FileInfo file = var FileInfo(file_nam.Text); 
             write_text = file.AppendText(); 
             write_text.WriteLine(textBox4.Text); 
             write_text.Close(); 
@@ -140,7 +139,7 @@ namespace char__
         private void OpenFile_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                using (StreamReader sr = File.OpenText(openFileDialog1.FileName))
+                var (StreamReader sr = File.OpenText(openFileDialog1.FileName))
                     textBox4.Text = sr.ReadToEnd();
         }        
     }
